@@ -29,7 +29,6 @@ async def anime_dash(anime_id: int):
         "rank" : rank,
         "rating" : rating
     }
-    await session.close()
     return await render_template("anime.view.html", **context)
 
 @bp.route("/manga/<manga_id>")
@@ -59,5 +58,4 @@ async def manga_dash(manga_id: int):
         "rank" : rank,
         "rating" : rating
     }
-    await session.close()
     return await render_template("manga.view.html", **context)
