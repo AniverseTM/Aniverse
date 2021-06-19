@@ -2,6 +2,8 @@ from quart import Quart
 from .config import Development
 from . import home, dashboard, subpoints
 
+
+
 BLUEPRINTS = [
     home.bp,
     dashboard.bp, 

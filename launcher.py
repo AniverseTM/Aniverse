@@ -2,6 +2,14 @@ import aniverse
 import aiohttp
 import asyncio
 
+try:
+    import uvloop # type: ignore
+    uvloop.install()
+    print("Uvloop set!")
+except Exception as exc:
+    print(f"Uvloop not found/Cannot be imported: {exc}")
+    
+
 app = aniverse.create_app()
 
 async def launch_attr_config():

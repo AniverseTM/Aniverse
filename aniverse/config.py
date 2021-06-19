@@ -1,5 +1,3 @@
-import aiohttp
-
 
 # defining config objects
 

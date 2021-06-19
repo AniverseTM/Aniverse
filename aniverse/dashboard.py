@@ -1,11 +1,10 @@
 from quart import Blueprint, current_app, render_template
-from aiohttp import ClientSession # type hinting
+from aiohttp import ClientSession # type hinting type: ignore
 bp = Blueprint("dashboard", __name__)
 
 @bp.route("/dashboard")
 async def dashboard():
     session = current_app.client_session
-    print("session get OK")
     urls = current_app.config["KITSU_URLS"]
     async with session.get(urls["TRENDING_ANIME"]) as anime_resp:
         anime_json = await anime_resp.json()
@@ -13,7 +12,6 @@ async def dashboard():
         manga_json = await manga_resp.json()
     print(anime_json)
     print(manga_json)
-    await session.close()
     trending_anime = anime_json.get("data")
     trending_manga = manga_json.get("data")
     pta = []
