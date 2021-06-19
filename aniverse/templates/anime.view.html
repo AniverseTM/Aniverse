@@ -1,0 +1,79 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<!--https://medium.com/@lendinez/how-to-use-tailwind-in-django-and-not-die-in-the-attempt-2853eb164aa7-->
+<head>
+    <title>Dashboard | Aniverse</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon-circle.png') }}" />
+    <!-- ... -->
+</head>
+
+<body style="background-color: #22292f;">
+  <style>
+    .mask {
+      mask-image: radial-gradient(circle at center, rgb(34, 41, 47), transparent);
+    }
+  </style>
+    <header class="text-gray-600 body-font bg-gray-700">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <img src="{{ url_for('static', filename='images/icon-main.png') }}" class="w-10 h-10 rounded-full">
+            <a href="/"><span class="ml-3 text-xl font-bold text-white">Aniverse</span></a>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/dashboard'">Dashboard</button>
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/search/anime'">Anime</button>
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/search/manga'">Manga</button>
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/login'">Login</button>
+          </nav>
+          <a class="inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-400 rounded text-base mt-4 md:mt-0 text-white" href="/discord" target="_blank">Discord
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </a>
+        </div>
+      </header>
+
+      <div class="flex relative h-64 w-auto overflow-hidden" style="background-color: #22292f;">
+        <!--<h1 class="absolute top-10 text-white text-9xl items-center font-mono px-96">Explore</h1>-->
+        <img class="mask w-full object-cover z-0" src="{{ cover_image }}">
+        <div class="absolute inset-0 bg-gradient-circle from-transparent to-gray-900"></div>
+      </div>
+
+      <div class="relative container mx-auto w-screen h-screen rounded-lg shadow-md my-10 hover:shadow-lg" style="background-color: #171c20;">
+        <img src="{{ poster_image }}" class="absolute top-16 w-48 h-auto rounded-xl shadow-lg mx-12 hover:w-52 duration-75">
+        <h1 class="text-white text-center text-2xl font-semibold py-7">{{ name }}</h1>
+        <p class="mx-52 px-20 text-gray-400 text-left font-medium">{{ description }}</p>
+        <iframe width="1120" height="315" src="https://www.youtube.com/embed/{{ trailer_link }}" class="mx-52 px-20 py-3 rounded">
+        </iframe>
+        <div class="mx-52 px-20">
+
+            <div class="border border-gray-200 rounded p-2 flex flex-col items-center space-y-2 w-full mt-2">
+          
+              <span class="text-white bg-transparent -mt-5 px-5" style="background-color: #171c20;">Statistics</span>
+          
+              <div class="rounded bg-green-400 text-white w-full text-center hover:shadow-xl">Favourites: {{ favourites }} ❤️</div>
+              <div class="rounded bg-blue-400 text-white w-full text-center">Average Rating: {{ rating }} ⭐</div>
+              <div class="rounded bg-purple-400 text-white w-full text-center">Rank: {{ rank }} 🏆</div>
+          
+            </div>
+            
+          </div>
+          
+      </div>
+
+      
+      
+
+      
+      
+     
+</body>
+
+</html>
