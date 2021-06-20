@@ -1,13 +1,14 @@
 from quart import Quart
 from .config import Development
-from . import home, dashboard, subpoints
+from . import home, dashboard, subpoints, searchpoints
 
 
 
 BLUEPRINTS = [
     home.bp,
     dashboard.bp, 
-    subpoints.bp
+    subpoints.bp,
+    searchpoints.bp
 ]
 
 def create_app(mode = Development) -> Quart:

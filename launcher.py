@@ -19,4 +19,4 @@ async def launch_attr_config():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(launch_attr_config())
-app.run("localhost", 8000, loop = loop)
+app.run("localhost", 8000, loop = loop, debug = True)
