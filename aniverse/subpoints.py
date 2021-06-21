@@ -1,5 +1,6 @@
 from quart import Blueprint, current_app, render_template
 from aiohttp import ClientSession # type hinting
+from . import utils
 bp = Blueprint("subpoints", __name__)
 
 @bp.route("/anime/<anime_id>")
@@ -20,7 +21,7 @@ async def anime_dash(anime_id: int):
     rank = attrs.get("ratingRank")
     rating = attrs.get("averageRating")
     context = {
-        "name" : title,
+        "name" : utils.strip_to_len(title, 25),
         "cover_image" : cover_image,
         "description" : description,
         "poster_image" : poster_image,
@@ -49,7 +50,7 @@ async def manga_dash(manga_id: int):
     rank = attrs.get("ratingRank")
     rating = attrs.get("averageRating")
     context = {
-        "name" : title,
+        "name" : utils.strip_to_len(title, 25),
         "cover_image" : cover_image,
         "description" : description,
         "poster_image" : poster_image,
