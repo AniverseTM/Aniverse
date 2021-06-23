@@ -7,6 +7,25 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon-circle.png') }}" />
     </head>
+    <header class="text-gray-600 body-font bg-gray-700">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <img src="{{ url_for('static', filename='images/icon-main.png') }}" class="w-10 h-10 rounded-full">
+            <a href="/"><span class="ml-3 text-xl font-bold text-white">Aniverse</span></a>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/dashboard'">Dashboard</button>
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/search/anime'">Anime</button>
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/search/manga'">Manga</button>
+            <button class="mr-5 text-gray-300 hover:text-gray-50" onclick="window.location.href='/login'">Login</button>
+          </nav>
+          <a class="inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-400 rounded text-base mt-4 md:mt-0 text-white" href="/discord" target="_blank">Discord
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </a>
+        </div>
+      </header>
     <body style="background-color: #22292f;">
         <section class="text-gray-600 body-font rounded-b shadow-b-lg bg-gray-800">
             <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">

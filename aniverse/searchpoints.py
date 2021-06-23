@@ -40,7 +40,7 @@ async def sp_anime():
         session = current_app.client_session
         urls = current_app.config["KITSU_URLS"]
         base_url = urls["BASE_ANIME"][:-3]
-        async with session.get(base_url+ f"?filter[text]={query}") as resp:
+        async with session.get(base_url+ f"?filter[text]={query}&page[limit]=12") as resp:
             print(resp.real_url)
             anime_json = await resp.json()
             print(anime_json)
@@ -105,7 +105,7 @@ async def sp_manga():
         session = current_app.client_session
         urls = current_app.config["KITSU_URLS"]
         base_url = urls["BASE_MANGA"][:-3]
-        async with session.get(base_url+ f"?filter[text]={query}") as resp:
+        async with session.get(base_url+ f"?filter[text]={query}&page[limit]=12") as resp:
             print(resp.real_url)
             anime_json = await resp.json()
             print(anime_json)
