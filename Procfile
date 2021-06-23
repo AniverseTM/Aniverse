@@ -1,1 +1,1 @@
-web: hypercorn launcher:app
+web: hypercorn hypercornlaunch:app
