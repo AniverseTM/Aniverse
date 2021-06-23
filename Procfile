@@ -1,1 +1,1 @@
-web: hypercorn hypercornlaunch:app
+web: hypercorn hypercornlaunch:app -b $PORT
